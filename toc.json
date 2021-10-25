@@ -1,0 +1,42 @@
+{
+  "items": [
+    {
+      "type": "item",
+      "title": "Home",
+      "uri": "docs/Home.md"
+    },
+    {
+      "type": "item",
+      "title": "Getting Started",
+      "uri": "docs/Getting-started.md"
+    },
+    {
+      "type": "divider",
+      "title": "OAuth2 Integration"
+    },
+    {
+      "type": "item",
+      "title": "OAuth2 Integration",
+      "uri": "docs/OAuth2 Integration/Home.md"
+    },
+    {
+      "type": "item",
+      "title": "Sample",
+      "uri": "docs/OAuth2 Integration/2-legged.md"
+    },
+    {
+      "type": "item",
+      "title": "Sample",
+      "uri": "docs/OAuth2 Integration/3-legged.md"
+    },
+    {
+      "type": "divider",
+      "title": "APIS"
+    },
+    {
+      "type": "item",
+      "title": "Bazaarvoice Privacy API",
+      "uri": "reference/Bazaarvoice-Privacy-API.yaml"
+    }
+  ]
+}

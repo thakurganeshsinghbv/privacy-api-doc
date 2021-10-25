@@ -1,0 +1,160 @@
+openapi: 3.1.0
+info:
+  title: Bazaarvoice Privacy API
+  version: '1.0'
+  summary: This document provides a high-level overview of the Bazaarvoice Privacy API suitable for all audiences.
+  description: |-
+    # Introduction
+
+    The Bazaarvoice Privacy API provides a secure HTTP interface for integrating Bazaarvoice into your General Data Protection Regulation (GDPR), California Consumer Privacy Act (CCPA), and other privacy regulations compliance workflows.
+
+    The Privacy API offers the following features:
+
+    - Request access to an end-user's personal data
+    - Request deletion of an end-user's personal data
+    - Retrieve information about pending requests
+servers:
+  - url: 'http://localhost:3000'
+    description: Local
+  - description: Staging
+    url: 'https://stg.api.bazaarvoice.com'
+  - description: Live
+    url: 'https://api.bazaarvoice.com'
+paths:
+  auth/v1/oauth2/token:
+    parameters: []
+    post:
+      summary: Get Access Token
+      operationId: postauth-v1-oauth2-token?passkey=piRsFZoKB0Dsf4epOTS0DY32hZ3X7BmLvVf8UyKpkgVfw
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Access-Response'
+              examples:
+                example-1:
+                  value:
+                    access_token: string
+                    token_type: string
+                    expires_at: 0
+                    scope: null
+                    refresh_token: string
+      parameters:
+        - schema:
+            type: string
+          in: query
+          name: passkey
+          description: 'Passkey created on portal application, provided by Bazaarvoice'
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Auth-Request'
+            examples:
+              example-1:
+                value:
+                  refresh_token: string
+                  grant_type: string
+                  client_id: string
+                  redirect_uri: string
+                  client_secret: string
+        description: kjnjkn
+      description: ''
+components:
+  schemas:
+    Access-Response:
+      description: ''
+      type: object
+      properties:
+        access_token:
+          type: string
+          minLength: 1
+        token_type:
+          type: string
+          minLength: 1
+        expires_at:
+          type: number
+        scope: {}
+        refresh_token:
+          type: string
+          minLength: 1
+      required:
+        - access_token
+        - token_type
+        - expires_at
+        - refresh_token
+      x-examples:
+        example-1:
+          access_token: string
+          token_type: string
+          expires_at: 0
+          scope: null
+          refresh_token: string
+      title: Access Response
+      examples:
+        - access_token: string
+          token_type: string
+          expires_at: 0
+          scope: null
+          refresh_token: string
+    Auth-Request:
+      description: ''
+      type: object
+      x-examples:
+        example-1:
+          refresh_token: 0zwgO_KkainboYBK0Z-JEI8GrKmKyeLpFX0v9pZrkTfI
+          grant_type: refresh_token
+          client_id: 5dbc0ee1-5fbb-11ea-b9f1-0a58a9feac2a
+          redirect_uri: 'https://www.intuit.com/privacy'
+          client_secret: BvMtMeCIyjOld46xDSFjGg
+      properties:
+        refresh_token:
+          type: string
+          minLength: 1
+          description: |
+            Create a new accessRequests resource to request information about an end user. Note that you cannot submit a right of access request for an end user if an existing Right of Access or Right to be Forgotten request for the same end user is still pending.
+        grant_type:
+          type: string
+          minLength: 1
+          description: |
+            Create a new accessRequests resource to request information about an end user. Note that you cannot submit a right of access request for an end user if an existing Right of Access or Right to be Forgotten request for the same end user is still pending.
+          example: 'access-token, refresh-token'
+        client_id:
+          type: string
+          minLength: 1
+          description: |
+            Create a new accessRequests resource to request information about an end user. Note that you cannot submit a right of access request for an end user if an existing Right of Access or Right to be Forgotten request for the same end user is still pending.
+
+            Create a new accessRequests resource to request information about an end user. Note that you cannot submit a right of access request for an end user if an existing Right of Access or Right to be Forgotten request for the same end user is still pending.
+        redirect_uri:
+          type: string
+          minLength: 1
+          description: |
+            Create a new accessRequests resource to request information about an end user. Note that you cannot submit a right of access request for an end user if an existing Right of Access or Right to be Forgotten request for the same end user is still pending.
+          format: uri
+          example: 'https://example.com'
+        client_secret:
+          type: string
+          minLength: 1
+          description: |
+            Create a new accessRequests resource to request information about an end user. Note that you cannot submit a right of access request for an end user if an existing Right of Access or Right to be Forgotten request for the same end user is still pending.
+
+            Create a new accessRequests resource to request information about an end user. Note that you cannot submit a right of access request for an end user if an existing Right of Access or Right to be Forgotten request for the same end user is still pending.
+
+            Create a new accessRequests resource to request information about an end user. Note that you cannot submit a right of access request for an end user if an existing Right of Access or Right to be Forgotten request for the same end user is still pending.
+
+            Create a new accessRequests resource to request information about an end user. Note that you cannot submit a right of access request for an end user if an existing Right of Access or Right to be Forgotten request for the same end user is still pending.
+
+            Create a new accessRequests resource to request information about an end user. Note that you cannot submit a right of access request for an end user if an existing Right of Access or Right to be Forgotten request for the same end user is still pending.
+      required:
+        - grant_type
+        - client_secret
+      examples:
+        - refresh_token: string
+          grant_type: 'access-token, refresh-token'
+          client_id: string
+          redirect_uri: 'https://example.com'
+          client_secret: string
+  securitySchemes: {}
